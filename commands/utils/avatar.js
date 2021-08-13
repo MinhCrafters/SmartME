@@ -1,6 +1,4 @@
 const { MessageEmbed } = require('discord.js');
-const avatarEmbed = require('discord.js-avatar');
-const { lang } = require('moment');
 
 module.exports = {
     name: 'avatar',
