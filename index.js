@@ -41,30 +41,6 @@ client.player = new Player(client, {
 	},
 });
 
-const handleTalk = async (msg) => {
-	try {
-		msg.content = msg.content.replace(/^<@!?[0-9]{1,20}> ?/i, '');
-		if (msg.content.length < 2) return;
-		const options = {
-			method: 'GET',
-			url: config.chatAI.url,
-			qs: {
-				bid: config.chatAI.bid,
-				key: config.chatAI.key,
-				uid: config.chatAI.uid,
-				msg: msg.content,
-			},
-			json: true,
-		};
-		let reply = await request(options);
-		if (reply) {
-			await msg.reply(reply.cnt);
-		}
-	} catch (e) {
-		console.log(e);
-	}
-};
-
 var playing = false;
 
 client.playing = playing;
