@@ -1,0 +1,40 @@
+{
+  "name": "discord-bot",
+  "version": "0.1.0",
+  "description": "a shitty discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "discord.js"
+  ],
+  "author": "MinhCrafters",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "better-sqlite3": "^7.4.3",
+    "discord-chatbot": "^2.0.2",
+    "discord-player": "^5.0.2",
+    "discord-prefix": "^2.0.0",
+    "discord-webhook-node": "^1.1.8",
+    "discord.js": "^13.0.1",
+    "ffmpeg-static": "^4.4.0",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "opusscript": "^0.0.8",
+    "pretty-ms": "^7.0.1",
+    "request-promise-native": "^1.0.9",
+    "something-random-on-discord": "^3.4.4",
+    "weather-js": "^2.0.0",
+    "ytdl-core": "^4.9.1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
