@@ -1,5 +1,4 @@
 const fs = require('fs');
-const storage = require('node-persist');
 const { Client, Intents, Collection } = require('discord.js');
 const request = require('request-promise-native');
 const config = require('./config/bot.js');
