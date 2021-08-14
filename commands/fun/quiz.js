@@ -57,7 +57,7 @@ module.exports = {
 				);
 			};
 
-			msg.channel
+			await msg.channel
 				.awaitMesages({
 					filter,
 					max: 1,
