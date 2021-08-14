@@ -117,10 +117,10 @@ module.exports = {
 
 			let msg = await message.channel.send({ embeds: [embed] });
 
-			const filter = (reaction, user) => {
-				return (
-					['1', '2'].includes(reaction.emoji.name) &&
-					user.id === interaction.user.id
+			const filter = (response) => {
+				return ['1', '2', 'cancel'].some(
+					(answer) =>
+						answer.toLowerCase() === response.content.toLowerCase()
 				);
 			};
 
@@ -152,6 +152,11 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
 							);
+
+                    } else if (result.content.toLowerCase() === 'cancel') {
+						return message.channel.send(
+							`${client.emotes.off} - Cancelled!`
+						);
 					} else {
 						return message.channel.send(
 							`${client.emotes.off} - Incorrect!`
