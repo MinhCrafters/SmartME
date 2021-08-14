@@ -31,7 +31,7 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setColor('#8c9eff')
-			.setAuthor(`Basically a quiz`)
+			.setAuthor(`Basically a quiz`, message.author.displayAvatarURL({dynamic: true}))
 			.setTitle(question)
 			.setDescription(
 				`Category: ${category}\nType: ${functions.toTitleCase(
