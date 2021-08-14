@@ -27,7 +27,7 @@ module.exports = {
 
 		functions.shuffle(totalAnswers);
 
-		if (category === 'boolean') category = 'True/False';
+		if (type === 'boolean') type = 'True/False';
 
 		const embed = new MessageEmbed()
 			.setColor('#8c9eff')
@@ -124,7 +124,7 @@ module.exports = {
 				);
 			};
 
-			msg.channel
+			await msg.channel
 				.awaitMesages({
 					filter,
 					max: 1,
