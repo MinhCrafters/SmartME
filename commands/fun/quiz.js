@@ -14,13 +14,13 @@ module.exports = {
         let difficultyLevels = ['easy', 'medium', 'hard'];
         let questionTypes = ['multiple', 'boolean'];
 
-        if (!args[0]) {
+        if (!args[0] || !difficultyLevels.includes(aegs[0])) {
             difficultyLevel = functions.choice(difficultyLevels);
         } else {
             difficultyLevel = args[0];
         }
 
-        if (!args[1]) {
+        if (!args[1] || !questionTypes.includes(args[1])) {
             questionType = functions.choice(questionTypes);
         } else {
             questionType = args[1];
