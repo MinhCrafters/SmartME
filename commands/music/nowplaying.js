@@ -1,5 +1,9 @@
 const { MessageEmbed } = require('discord.js');
 
+function numberWithCommas(int) {
+    return int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 module.exports = {
     name: 'nowplaying',
     aliases: ['np'],
@@ -53,7 +57,7 @@ module.exports = {
                 { name: 'Channel', value: track.author, inline: true },
                 { name: 'Requested by', value: track.requestedBy.username, inline: true },
 
-                { name: 'Views', value: track.views.toString(), inline: true },
+                { name: 'Views', value: numberWithCommas(parseInt(track.views)), inline: true },
                 { name: 'Duration', value: '`' + track.duration + '`', inline: true },
 
                 { name: 'Volume', value: queue.volume.toString(), inline: true },
