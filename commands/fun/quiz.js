@@ -14,7 +14,7 @@ module.exports = {
         let difficultyLevels = ['easy', 'medium', 'hard'];
         let questionTypes = ['multiple', 'boolean'];
 
-        if (!args[0] || !difficultyLevels.includes(aegs[0])) {
+        if (!args[0] || !difficultyLevels.includes(args[0])) {
             difficultyLevel = functions.choice(difficultyLevels);
         } else {
             difficultyLevel = args[0];
