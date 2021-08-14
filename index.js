@@ -3,16 +3,16 @@ const { Client, Intents, Collection, Structures } = require('discord.js');
 const config = require('./utils/config.js');
 const { Player } = require('discord-player');
 
-Structures.extend('Guild', Guild => {
-  class MusicGuild extends Guild {
-    constructor(client, data) {
-      super(client, data);
-      this.musicData = {
-        isPlaying: false,
-      };
-    }
-  }
-  return MusicGuild;
+Structures.extend('Guild', (Guild) => {
+	class MusicGuild extends Guild {
+		constructor(client, data) {
+			super(client, data);
+			this.musicData = {
+				isPlaying: false,
+			};
+		}
+	}
+	return MusicGuild;
 });
 
 function parseQuotes(str = '') {
