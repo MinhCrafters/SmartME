@@ -160,6 +160,10 @@ module.exports = {
 			playing = false;
 		});
 
+		client.player.on('botDisconnect', (queue) => {
+			playing = false;
+		});
+
 		if (playing === true) {
 			return;
 		}
