@@ -10,7 +10,7 @@ module.exports = {
 	usage: '{prefix}quiz',
 
 	async execute(client, message) {
-		const response = await fetch('https://opentdb.com/api.php?amount=1');
+		const response = await fetch('https://opentdb.com/api.php?amount=20');
 		const data = await response.json();
 		var length = data.results.length;
 
