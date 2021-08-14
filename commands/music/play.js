@@ -152,6 +152,14 @@ module.exports = {
 				});
 		}
 
+		client.player.on('trackEnd', (queue, track) => {
+			playing = false;
+		});
+
+		client.player.on('queueEnd', (queue) => {
+			playing = false;
+		});
+
 		if (playing === true) {
 			return;
 		}
