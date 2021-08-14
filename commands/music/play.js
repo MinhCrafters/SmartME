@@ -131,13 +131,11 @@ module.exports = {
 						queue.addTrack(song.tracks[4]);
 					} else if (result.content === 'cancel') {
 						msg.delete();
-						playing = false;
 						return message.channel.send(
 							`${client.emotes.success} - Search **cancelled**!`
 						);
 					} else {
 						msg.delete();
-						playing = false;
 						return message.channel.send(
 							`${client.emotes.error} - Invalid number!`
 						);
@@ -145,7 +143,6 @@ module.exports = {
 				})
 				.catch(() => {
 					msg.delete();
-					playing = false;
 					return message.channel.send(
 						`${client.emotes.error} - Timed out!`
 					);
