@@ -115,7 +115,7 @@ module.exports = {
 				{ name: '2', value: totalAnswers[1], inline: false }
 			);
 
-			let msg = message.channel.send({ embeds: [embed] });
+			let msg = await message.channel.send({ embeds: [embed] });
 
 			const filter = (reaction, user) => {
 				return (
@@ -125,7 +125,7 @@ module.exports = {
 			};
 
 			await msg.channel
-				.awaitMesages({
+				.awaitMessages({
 					filter,
 					max: 1,
 					time: 30000,
