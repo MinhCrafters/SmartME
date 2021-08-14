@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { MessageEmbed, ReactionManager } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const functions = require('../../utils/functions.js');
 
 module.exports = {
@@ -7,10 +7,18 @@ module.exports = {
 	aliases: [],
 	description: 'Asks you some questions.',
 	category: 'Fun',
-	usage: '{prefix}quiz',
+	usage: '{prefix}quiz [difficulty]',
 
-	async execute(client, message) {
-		const response = await fetch('https://opentdb.com/api.php?amount=20');
+	async execute(client, message, args) {
+
+        let difficultyLevels = ['easy', 'medium', 'hard'];
+
+        if (!args[0]) {
+            difficultyLevel = functions.choice(difficultyLevels);
+        } else {
+            difficultyLevel = args[0];
+        }
+		const response = await fetch(`https://opentdb.com/api.php?amount=20&difficulty=${difficultyLevel}`);
 		const data = await response.json();
 		var length = data.results.length;
 

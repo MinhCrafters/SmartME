@@ -43,3 +43,8 @@ module.exports.decode = function (encodedString) {
         return String.fromCharCode(num);
     });
 }
+
+module.exports.choice = function (choices) {
+	var index = Math.floor(Math.random() * choices.length);
+	return choices[index];
+  }
