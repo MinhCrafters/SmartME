@@ -1,7 +1,19 @@
 const fs = require('fs');
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Intents, Collection, Structures } = require('discord.js');
 const config = require('./utils/config.js');
 const { Player } = require('discord-player');
+
+Structures.extend('Guild', Guild => {
+  class MusicGuild extends Guild {
+    constructor(client, data) {
+      super(client, data);
+      this.musicData = {
+        isPlaying: false,
+      };
+    }
+  }
+  return MusicGuild;
+});
 
 function parseQuotes(str = '') {
 	let current = '',
@@ -65,11 +77,11 @@ client.player.on('trackStart', (queue, track) => {
 	queue.metadata.channel.send(
 		`${client.emotes.music} - Now playing **${track.title}** to _${queue.metadata.message.member.voice.channel.name}_...`
 	);
-	playing = true;
+	message.guild.musicData.isPlaying = true;
 });
 
 client.player.on('trackEnd', (queue, track) => {
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.player.on('trackAdd', (queue, track) => {
@@ -91,7 +103,7 @@ client.player.on(
 				`${client.emotes.error} - You must send a valid number between **1** and **${tracks.length}**!`
 			);
 
-		playing = false;
+		message.guild.musicData.isPlaying = false;
 	}
 );
 
@@ -99,12 +111,12 @@ client.player.on('searchCancel', (queue) => {
 	queue.metadata.channel.send(
 		`${client.emotes.error} - You did not provide a valid response... Please send the command again!`
 	);
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.player.on('queueEnd', (queue) => {
 	// queue.metadata.channel.send(`${client.emotes.off} - Music stopped as there is no more songs in the queue!`);
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.player.on('playlistAdd', (queue, playlist) => {
@@ -117,7 +129,7 @@ client.player.on('noResults', (queue, query) => {
 	queue.metadata.channel.send(
 		`${client.emotes.error} - No results found on YouTube for ${query}!`
 	);
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.player.on('error', (queue, error, ...args) => {
@@ -153,21 +165,21 @@ client.player.on('error', (queue, error, ...args) => {
 			);
 	}
 
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.player.on('channelEmpty', (queue) => {
 	queue.metadata.channel.send(
-		`${client.emotes.error} - Music stopped as there is no more member in the voice channel!`
+		`${client.emotes.error} - Music stopped as there is no more members in the voice channel!`
 	);
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.player.on('botDisconnect', (queue) => {
 	queue.metadata.channel.send(
 		`${client.emotes.error} - Music stopped as I have been disconnected from the channel!`
 	);
-	playing = false;
+	message.guild.musicData.isPlaying = false;
 });
 
 client.once('ready', () => {
