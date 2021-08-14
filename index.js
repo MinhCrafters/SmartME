@@ -21,7 +21,7 @@ function parseQuotes(str = '') {
 		inQuotes = false;
 
 	for (let char of str) {
-		if (char == '"') {
+		if (char == '"' || char == "'") {
 			inQuotes = !inQuotes;
 		} else if (char == ' ' && !inQuotes) {
 			arr.push(current);
