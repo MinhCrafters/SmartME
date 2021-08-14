@@ -11,7 +11,7 @@ module.exports = {
 
 	async execute(client, message) {
 		const response = await fetch('https://opentdb.com/api.php?amount=20');
-		const data = response.json();
+		const data = await response.json();
 		var length = data.results.length;
 
 		var random = Math.floor(Math.random() * length);
