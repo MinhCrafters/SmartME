@@ -31,7 +31,7 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setColor('#8c9eff')
-			.setAuthor(`Question ${i + 1}`)
+			.setAuthor(`Basically a quiz`)
 			.setTitle(question)
 			.setDescription(
 				`Category: ${category}\nType: ${functions.toTitleCase(
