@@ -11,12 +11,6 @@ module.exports = {
     async execute(client, message) {
         let data = await Random.getFact()
 
-        console.log(data)
-
-        const embed = new MessageEmbed()
-            .setColor('#8c9eff')
-            .setDescription(data.embed.description)
-
-        message.channel.send({embeds: [embed]})
+        message.channel.send({embeds: [data.embed]})
    }
 }

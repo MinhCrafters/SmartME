@@ -10,13 +10,7 @@ module.exports = {
 
     async execute(client, message) {
         let data = await Random.getAdvice()
-
-        console.log(data)
-
-        const embed = new MessageEmbed()
-            .setDescription(data.embed.description)
-            .setColor('#8c9eff')
             
-        message.channel.send({embeds: [embed]})
+        message.channel.send({embeds: [data.embed]})
    }
 }

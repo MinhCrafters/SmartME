@@ -1,5 +1,6 @@
 const fetch = require("node-fetch")
 const discord = require("discord.js")
+var functions = require("../../utils/functions.js");
 const parseMilliseconds = require('pretty-ms');
 
 //If you do not know how GraphQL API works then you wont understand. 
@@ -29,15 +30,6 @@ Media (search: $search, type: ANIME) {
   }
 }
 `
-
-function toTitleCase(str) {
-    return str.replace(
-        /\w\S*/g,
-        function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
-}
 
 module.exports = {
     name: "anime",
@@ -88,7 +80,7 @@ module.exports = {
                 .setImage(json.bannerImage)
                 .addField("Genres", json.genres.join(", "))
                 .addField("Is 18+", json.isAdult ? 'Yes' : 'No', true)
-                .addField("Status", toTitleCase(json.status.replace(/_/g, " ")), true)
+                .addField("Status", functions.toTitleCase(json.status.replace(/_/g, " ")), true)
                 .setFooter("Anime Hub")
 
             if (json.nextAiringEpisode) {

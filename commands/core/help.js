@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const prefix1 = require('discord-prefix');
 
-let defaultPrefix = require('../../config/bot.js').discord.prefix;
+let defaultPrefix = require('../../utils/config.js').discord.prefix;
 
 module.exports = {
     name: 'help',

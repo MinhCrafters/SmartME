@@ -10,15 +10,7 @@ module.exports = {
 
     async execute(client, message) {
         let data = await Random.getJoke()
-
-        console.log(data)
-
-        const embed = new MessageEmbed()
-            .setTitle(data.embed.title)
-            .setDescription(data.embed.description)
-            .setFooter(data.embed.footer.text)
-            .setColor('#8c9eff')
             
-        message.channel.send({embeds: [embed]})
+        message.channel.send({embeds: [data.embed]})
    }
 }

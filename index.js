@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { Client, Intents, Collection } = require('discord.js');
-const request = require('request-promise-native');
-const config = require('./config/bot.js');
+const config = require('./utils/config.js');
+const { Player } = require('discord-player');
 
 function parseQuotes(str = '') {
 	let current = '',
@@ -33,8 +33,6 @@ const client = new Client({
 	],
 });
 
-const { Player } = require('discord-player');
-
 client.player = new Player(client, {
 	ytdlDownloadOptions: {
 		filter: 'audioonly',
@@ -44,10 +42,11 @@ client.player = new Player(client, {
 var playing = false;
 
 client.playing = playing;
-client.config = require('./config/bot.js');
+client.config = config;
 client.emotes = client.config.emotes;
 client.filters = client.config.filters;
 client.commands = new Collection();
+
 const prefix1 = require('discord-prefix');
 
 fs.readdirSync('./commands').forEach((dirs) => {

@@ -10,14 +10,7 @@ module.exports = {
 
     async execute(client, message) {
         let data = await Random.getNeko()
-
-        console.log(data)
-
-        const embed = new MessageEmbed()
-            .setColor('#8c9eff')
-            .setTitle(data.embed.title)
-            .setImage(data.embed.image.url)
         
-        message.channel.send({embeds: [embed]})
+        message.channel.send({embeds: [data.embed]})
    }
 }
