@@ -1,5 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
+var playing = false;
+
 module.exports = {
 	name: 'play',
 	aliases: ['p'],
@@ -150,16 +152,32 @@ module.exports = {
 				});
 		}
 
-		if (message.guild.musicData.isPlaying === true) {
+		client.player.on('trackEnd', (queue, track) => {
+			playing = false;
+		});
+
+		client.player.on('queueEnd', (queue) => {
+			playing = false;
+		});
+
+		client.player.on('botDisconnect', (queue) => {
+			playing = false;
+		});
+
+		client.player.on('channelEmpty', (queue) => {
+			playing = false;
+		});
+
+		if (playing === true) {
 			return;
 		}
 
 		try {
 			queue.play();
-			message.guild.musicData.isPlaying = true;
+			playing = true;
 		} catch {
 			console.log(console.error);
-			message.guild.musicData.isPlaying = false;
+			playing = false;
 		}
 	},
 };
