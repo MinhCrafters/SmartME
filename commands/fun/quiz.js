@@ -2,8 +2,6 @@ const fetch = require('node-fetch');
 const { MessageEmbed, ReactionManager } = require('discord.js');
 const functions = require('../../utils/functions.js');
 
-var points = 0;
-
 module.exports = {
 	name: 'quiz',
 	aliases: [],
@@ -16,7 +14,7 @@ module.exports = {
 		const data = response.json();
 		var length = data.results.length;
 
-        var random = Math.floor(Math.random() * length);
+		var random = Math.floor(Math.random() * length);
 		var questions = data.results[random];
 		var category = questions.category;
 		var type = questions.type;
@@ -40,7 +38,7 @@ module.exports = {
 					type
 				)}\nDifficulty: ${functions.toTitleCase(difficulty)}`
 			)
-			.setFooter(`Points: ${points.toString()}`);
+			.setTimestamp();
 
 		if (type.toLowerCase() === 'multiple') {
 			embed.addFields(
@@ -74,7 +72,6 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.success} - Correct!`
 							);
-							points += 1;
 						} else
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
@@ -84,7 +81,6 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.success} - Correct!`
 							);
-							points += 1;
 						} else
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
@@ -94,7 +90,6 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.success} - Correct!`
 							);
-							points += 1;
 						} else
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
@@ -104,7 +99,6 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.success} - Correct!`
 							);
-							points += 1;
 						} else
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
@@ -145,7 +139,6 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.success} - Correct!`
 							);
-							points += 1;
 						} else
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
@@ -155,7 +148,6 @@ module.exports = {
 							message.channel.send(
 								`${client.emotes.success} - Correct!`
 							);
-							points += 1;
 						} else
 							message.channel.send(
 								`${client.emotes.off} - Incorrect!`
