@@ -48,6 +48,8 @@ module.exports = {
 
 		if (type === 'boolean') type = 'True/False';
 
+        message.delete();
+
 		const embed = new MessageEmbed()
 			.setColor('#8c9eff')
 			.setAuthor(`Basically a quiz`, message.author.displayAvatarURL({dynamic: true}))
@@ -56,8 +58,7 @@ module.exports = {
 				`Category: ${category}\nType: ${functions.toTitleCase(
 					type
 				)}\nDifficulty: ${functions.toTitleCase(difficulty)}`
-			)
-			.setTimestamp();
+			);
 
 		if (type.toLowerCase() === 'multiple') {
 			embed.addFields(
@@ -66,6 +67,8 @@ module.exports = {
 				{ name: 'C', value: functions.decode(totalAnswers[2]), inline: false },
 				{ name: 'D', value: functions.decode(totalAnswers[3]), inline: false }
 			);
+
+            embed.setFooter('Type either A, B, C, D or type \'cancel\' to cancel.');
 
 			let msg = await message.channel.send({ embeds: [embed] });
 
@@ -133,6 +136,8 @@ module.exports = {
 				{ name: '1', value: totalAnswers[0], inline: false },
 				{ name: '2', value: totalAnswers[1], inline: false }
 			);
+
+            embed.setFooter('Type either 1 or 2 or type \'cancel\' to cancel.');
 
 			let msg = await message.channel.send({ embeds: [embed] });
 
