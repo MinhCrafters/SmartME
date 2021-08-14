@@ -22,6 +22,7 @@
     "discord-webhook-node": "^1.1.8",
     "discord.js": "^13.0.1",
     "ffmpeg-static": "^4.4.0",
+    "html-entities": "^2.3.2",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.1",
     "opusscript": "^0.0.8",

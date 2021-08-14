@@ -19,7 +19,7 @@ module.exports = {
 		var category = questions.category;
 		var type = questions.type;
 		var difficulty = questions.difficulty;
-		var question = questions.question;
+		var question = functions.decode(questions.question);
 		var correctAnswer = questions.correct_answer;
 		var totalAnswers = questions.incorrect_answers;
 
@@ -42,10 +42,10 @@ module.exports = {
 
 		if (type.toLowerCase() === 'multiple') {
 			embed.addFields(
-				{ name: 'A', value: totalAnswers[0], inline: false },
-				{ name: 'B', value: totalAnswers[1], inline: false },
-				{ name: 'C', value: totalAnswers[2], inline: false },
-				{ name: 'D', value: totalAnswers[3], inline: false }
+				{ name: 'A', value: functions.decode(totalAnswers[0]), inline: false },
+				{ name: 'B', value: functions.decode(totalAnswers[1]), inline: false },
+				{ name: 'C', value: functions.decode(totalAnswers[2]), inline: false },
+				{ name: 'D', value: functions.decode(totalAnswers[3]), inline: false }
 			);
 
 			let msg = await message.channel.send({ embeds: [embed] });
