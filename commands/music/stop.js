@@ -15,7 +15,8 @@ module.exports = {
         const queue = client.player.getQueue(message.guild);
 
         queue.setRepeatMode(0);
-        queue.stop();
+        
+        queue.destroy();
 
         message.channel.send(`${client.emotes.success} - Music **stopped**!`);
     },
