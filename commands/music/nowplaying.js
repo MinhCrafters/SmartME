@@ -44,7 +44,7 @@ module.exports = {
         }
 
         const embed = new MessageEmbed()
-            .setAuthor(track.title)
+            .setAuthor('Now playing: ' + track.title)
             .setColor('#8c9eff')
             .setFooter('A bot made by MinhCrafters')
             .setTimestamp()
