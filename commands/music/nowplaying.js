@@ -50,7 +50,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setAuthor('Now playing', message.author.displayAvatarURL({dynamic: true}))
             .setColor('#8c9eff')
-            .setDescription(`**${track.title}**`)
+            .setDescription(`[**${track.title}**](${track.url})`)
             .setFooter('A bot made by MinhCrafters')
             .setTimestamp()
             .setThumbnail(track.thumbnail)
