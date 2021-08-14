@@ -6,7 +6,7 @@ module.exports = {
     usage: '{prefix}purge all/<amount>',
 
     execute(client, message, args) {
-        if (message.member.hasPermission('MANAGE_MESSAGES')) {
+        if (message.member.permissions.has('MANAGE_MESSAGES')) {
             if (!args[0] || args[0].match(/all/gi)) {
                 message.channel.messages.fetch()
                     .then(messages => message.channel.bulkDelete(messages));

@@ -8,7 +8,7 @@ module.exports = {
     usage: '{prefix}prefix <new prefix>',
 
     execute(client, message, args) {
-        if (message.member.hasPermission('MANAGE_SERVER')) {
+        if (message.member.permissions.has('MANAGE_GUILD')) {
             if (!args.length) return message.channel.send(`${client.emotes.error} - Please provide the new prefix!`);
 
             prefix.setPrefix(args.join(" "), message.guild.id);
