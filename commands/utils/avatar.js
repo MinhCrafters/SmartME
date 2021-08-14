@@ -55,7 +55,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle(user.user.username)
             .setColor('#8c9eff')
-            .setDescription(`[Avatar URL](${user.user.displayAvatarURL({dynamic: true, format: format, size: size})})`)
+            .setDescription(`Image Format: ${format.toUpperCase()}\nImage Size: ${size.toString()}\n[Avatar URL](${user.user.displayAvatarURL({dynamic: true, format: format, size: size})})`)
             .setImage(user.user.displayAvatarURL({
                 dynamic: true,
                 format: format,
