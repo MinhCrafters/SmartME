@@ -48,7 +48,7 @@ module.exports = {
 				{ name: 'D', value: totalAnswers[3], inline: false }
 			);
 
-			let msg = message.channel.send({ embeds: [embed] });
+			let msg = await message.channel.send({ embeds: [embed] });
 
 			const filter = (response) => {
 				return ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'cancel'].some(
@@ -58,7 +58,7 @@ module.exports = {
 			};
 
 			await msg.channel
-				.awaitMesages({
+				.awaitMessages({
 					filter,
 					max: 1,
 					time: 30000,
