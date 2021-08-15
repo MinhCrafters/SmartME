@@ -61,7 +61,7 @@ module.exports = {
 				queue.addTrack(song.tracks[0]);
 			}
 		} else {
-			message.channel.send(client.emotes.music + ' - Searching `' + args[0] + '` on YouTube...')
+			message.channel.send(client.emotes.music + ' - Searching `' + args.join(' ') + '` on YouTube...')
 
 			const embed = new MessageEmbed()
 				.setColor('#8c9eff')
