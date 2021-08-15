@@ -163,7 +163,7 @@ client.player.on('botDisconnect', (queue) => {
 
 client.once('ready', () => {
 	console.log(
-		`Logged in as ${client.user.username}. Ready on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`
+		`Logged in as ${client.user.username}. Client ID: ${client.user.id}\nReady on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users`
 	);
 
 	client.user.setActivity(
