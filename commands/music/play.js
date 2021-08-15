@@ -53,9 +53,6 @@ module.exports = {
 		);
 
 		console.log(args.join(' ').replace(/^\<+|\>+$/g, ''));
-		console.log(song.playlist.tracks);
-
-		var time = song.playlist.tracks.length;
 		
 		if (args.join(' ').includes('http')) {
 			if (song.playlist) {
@@ -64,6 +61,8 @@ module.exports = {
 				queue.addTrack(song.tracks[0]);
 			}
 		} else {
+			message.channel.send(client.emotes.music + ' - Searching `' + args[0] + '` on YouTube...')
+
 			const embed = new MessageEmbed()
 				.setColor('#8c9eff')
 				.setAuthor(`Choose a song to play`)
