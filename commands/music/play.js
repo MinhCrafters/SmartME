@@ -53,7 +53,7 @@ module.exports = {
 		);
 
 		console.log(args.join(' ').replace(/^\<+|\>+$/g, ''));
-		console.log(song.tracks);
+		console.log(song.playlist.tracks);
 		
 		if (args.join(' ').includes('http')) {
 			if (song.playlist) {
