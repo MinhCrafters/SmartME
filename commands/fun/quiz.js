@@ -24,9 +24,6 @@ module.exports = {
             questionType = functions.choice(questionTypes);
         } else {
             questionType = args[1];
-            if (questionType === 'trueorfalse') {
-                questionType = 'boolean';
-            }
         }
 
 		const response = await fetch(`https://opentdb.com/api.php?amount=20&difficulty=${difficultyLevel}&type=${questionType}`);
