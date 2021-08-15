@@ -54,11 +54,19 @@ module.exports = {
 
 		console.log(args.join(' ').replace(/^\<+|\>+$/g, ''));
 		console.log(song.playlist.tracks);
+
+		var time = song.playlist.tracks.length;
 		
 		if (args.join(' ').includes('http')) {
 			if (song.playlist) {
 				for (let i = 0; i <= song.playlist.tracks.length; i++) {
-					queue.addTrack(song.playlist.tracks[i]);
+					const timer = setInterval(function() {
+						if (time < 0) {
+							return clearInterval(timer);
+						}
+						queue.addTrack(song.playlist.tracks[i]);
+						time -= 1;
+					}, 500);
 				}
 			} else {
 				queue.addTrack(song.tracks[0]);
