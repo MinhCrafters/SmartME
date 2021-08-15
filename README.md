@@ -7,6 +7,7 @@ Yet another generic Discord bot.
 - Clone this repository by using `git clone https://github/MinhCrafters/SmartME.git`
 - Install dependencies by typing: `npm install` or `yarn`,
 - Set your TOKEN environment variable to your Discord bot token.
+- Rename `config.example.js` to `config.js`.
 - Start the script by typing `npm run dev` or `yarn dev`.
 - Enjoy!
 
