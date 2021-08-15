@@ -72,6 +72,12 @@ client.player.on('trackAdd', (queue, track) => {
 	);
 });
 
+client.player.on('tracksAdd', (queue, tracks) => {
+	queue.metadata.channel.send(
+		`${client.emotes.music} - **${tracks.length}** songs has been added to the queue!`
+	);
+});
+
 client.player.on(
 	'searchInvalidResponse',
 	(queue, tracks, content, collector) => {

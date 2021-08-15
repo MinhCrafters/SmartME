@@ -59,15 +59,7 @@ module.exports = {
 		
 		if (args.join(' ').includes('http')) {
 			if (song.playlist) {
-				for (let i = 0; i <= song.playlist.tracks.length; i++) {
-					const timer = setInterval(function() {
-						if (time < 0) {
-							return clearInterval(timer);
-						}
-						queue.addTrack(song.playlist.tracks[i]);
-						time -= 1;
-					}, 500);
-				}
+				queue.addTracks(song.playlist.tracks);
 			} else {
 				queue.addTrack(song.tracks[0]);
 			}
