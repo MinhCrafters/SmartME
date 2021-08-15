@@ -61,6 +61,8 @@ module.exports = {
                 { name: 'Views', value: numberWithCommas(parseInt(track.views)), inline: true },
                 { name: 'Duration', value: '`' + track.duration + '`', inline: true },
 
+                { name: 'From playlist?', value: track.fromPlaylist ? 'Yes' : 'No', inline: true },
+
                 { name: 'Volume', value: queue.volume.toString(), inline: true },
                 { name: 'Looping mode', value: repeat_mode, inline: true },
 

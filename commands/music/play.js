@@ -54,9 +54,15 @@ module.exports = {
 
 		console.log(args.join(' ').replace(/^\<+|\>+$/g, ''));
 		console.log(song.tracks);
-
+		
 		if (args.join(' ').includes('http')) {
-			queue.addTrack(song.tracks[0]);
+			if (song.playlist) {
+				for (let i = 0; i <= song.playlist.tracks.length; i++) {
+					queue.addTrack(song.playlist.tracks[i]);
+				}
+			} else {
+				queue.addTrack(song.tracks[0]);
+			}
 		} else {
 			const embed = new MessageEmbed()
 				.setColor('#8c9eff')
