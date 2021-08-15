@@ -53,6 +53,7 @@ module.exports = {
 		);
 
 		console.log(args.join(' ').replace(/^\<+|\>+$/g, ''));
+		console.log(song.tracks);
 
 		if (args.join(' ').includes('http')) {
 			queue.addTrack(song.tracks[0]);

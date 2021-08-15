@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Client, Intents, Collection, Structures } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const config = require('./utils/config.js');
 const { Player } = require('discord-player');
 
@@ -39,9 +39,6 @@ client.player = new Player(client, {
 	},
 });
 
-var playing = false;
-
-client.playing = playing;
 client.config = config;
 client.emotes = client.config.emotes;
 client.filters = client.config.filters;
